@@ -1,10 +1,10 @@
 # Tic-Tac-Toe
 
-A simple, browser-based Tic-Tac-Toe game with two modes: **2 Players (local)** or **vs Computer**. Includes a **turn indicator** and an in-game **timer**. :contentReference[oaicite:0]{index=0}
+A simple, browser-based Tic-Tac-Toe game with two modes: **2 Players (local)** or **vs Computer**. Includes a **turn indicator** and an in-game **timer**. 
 
 ## Live Demo
 
-Play here: https://mreoinsmith.github.io/tic-tac-toe/ :contentReference[oaicite:1]{index=1}
+Play here: https://mreoinsmith.github.io/tic-tac-toe/ 
 
 ## Features
 
