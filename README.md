@@ -8,25 +8,25 @@ Play here: https://mreoinsmith.github.io/tic-tac-toe/ :contentReference[oaicite:
 
 ## Features
 
-- ✅ **Two game modes**: 2 Players / vs Computer :contentReference[oaicite:2]{index=2}  
-- ✅ **Current turn** display :contentReference[oaicite:3]{index=3}  
-- ✅ **Game timer** :contentReference[oaicite:4]{index=4}  
-- ✅ **New Game** + **Change Mode** controls :contentReference[oaicite:5]{index=5}  
-- ✅ Lightweight: plain **HTML/CSS/JavaScript** (no build step) :contentReference[oaicite:6]{index=6}  
+- ✅ **Two game modes**: 2 Players / vs Computer
+- ✅ **Current turn** display
+- ✅ **Game timer**
+- ✅ **New Game** + **Change Mode** 
+- ✅ Lightweight: plain **HTML/CSS/JavaScript** (no build step) 
 
 ## Tech Stack
 
 - HTML
 - CSS
-- JavaScript :contentReference[oaicite:7]{index=7}
+- JavaScript 
 
 ## Project Structure
 
 The app is intentionally small and easy to follow:
 
-- `index.html` – UI / layout :contentReference[oaicite:8]{index=8}  
-- `style.css` – styling :contentReference[oaicite:9]{index=9}  
-- `game.js` – game logic and interactions :contentReference[oaicite:10]{index=10}  
+- `index.html` – UI / layout
+- `style.css` – styling
+- `game.js` – game logic and interactions 
 
 ## Run Locally
 
