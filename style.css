@@ -38,6 +38,24 @@
     --transition-slow: 0.5s ease;
 }
 
+/* Christmas Theme Variables */
+body.christmas-mode {
+    --bg-primary: #0a3d0a;
+    --bg-secondary: #1a5c1a;
+    --accent-primary: #c41e3a;
+    --accent-secondary: #2d8f2d;
+    --accent-success: #ffd700;
+    --text-primary: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 215, 0, 0.3);
+}
+
+body.christmas-mode {
+    background: linear-gradient(135deg, #0a3d0a 0%, #1a5c1a 50%, #c41e3a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
 /* Reset & Base */
 * {
     margin: 0;
@@ -66,6 +84,7 @@ body {
 header {
     text-align: center;
     margin-bottom: var(--spacing-lg);
+    position: relative;
 }
 
 h1 {
@@ -76,6 +95,51 @@ h1 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: var(--spacing-sm);
+}
+
+.christmas-toggle {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    font-family: var(--font-family);
+    color: var(--text-primary);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--glass-border);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    margin-top: var(--spacing-sm);
+}
+
+.christmas-toggle:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-primary);
+    box-shadow: 0 5px 20px rgba(99, 102, 241, 0.3);
+}
+
+body.christmas-mode .christmas-toggle {
+    background: linear-gradient(135deg, #c41e3a, #2d8f2d);
+    border-color: #ffd700;
+    animation: pulse 2s infinite;
+}
+
+/* Snowflakes */
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    font-size: 1.5rem;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 1000;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
 }
 
 /* Mode Selection */
@@ -221,6 +285,20 @@ h1 {
 .cell.winning {
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
     animation: pulse 1s infinite;
+}
+
+body.christmas-mode .cell {
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+body.christmas-mode .cell:hover:not(.taken) {
+    background: rgba(196, 30, 58, 0.2);
+    border-color: #ffd700;
+}
+
+body.christmas-mode .cell.winning {
+    background: linear-gradient(135deg, rgba(196, 30, 58, 0.3), rgba(45, 143, 45, 0.3));
+    border-color: #ffd700;
 }
 
 /* Game Status */

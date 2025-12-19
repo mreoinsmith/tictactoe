@@ -6,6 +6,7 @@ let timerInterval = null;
 let seconds = 0;
 let gameMode = null; // 'two-player' or 'vs-computer'
 let isComputerThinking = false;
+let christmasMode = false;
 
 // DOM Elements
 const cells = document.querySelectorAll('.cell');
@@ -18,6 +19,7 @@ const gameContainer = document.getElementById('game-container');
 const twoPlayerBtn = document.getElementById('two-player-btn');
 const vsComputerBtn = document.getElementById('vs-computer-btn');
 const changeModeBtn = document.getElementById('change-mode-btn');
+const christmasToggle = document.getElementById('christmas-toggle');
 
 // Win Conditions
 const winConditions = [
@@ -237,6 +239,53 @@ function showModeSelection() {
     clearInterval(timerInterval);
 }
 
+// Christmas Mode
+function toggleChristmasMode() {
+    christmasMode = !christmasMode;
+    document.body.classList.toggle('christmas-mode', christmasMode);
+
+    if (christmasMode) {
+        createSnowflakes();
+        christmasToggle.textContent = '🎄 Christmas Mode';
+    } else {
+        removeSnowflakes();
+        christmasToggle.textContent = '❄️ Christmas Mode';
+    }
+}
+
+function createSnowflakes() {
+    const snowflakeCount = 50;
+    for (let i = 0; i < snowflakeCount; i++) {
+        setTimeout(() => {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = '❄';
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            snowflake.style.animationDelay = Math.random() * 5 + 's';
+            snowflake.style.fontSize = (Math.random() * 1 + 0.5) + 'rem';
+            document.body.appendChild(snowflake);
+
+            // Remove snowflake after animation
+            setTimeout(() => {
+                if (snowflake.parentNode) {
+                    snowflake.remove();
+                }
+            }, parseFloat(snowflake.style.animationDuration) * 1000 + parseFloat(snowflake.style.animationDelay) * 1000);
+        }, i * 100);
+    }
+
+    // Keep creating snowflakes
+    if (christmasMode) {
+        setTimeout(createSnowflakes, 5000);
+    }
+}
+
+function removeSnowflakes() {
+    const snowflakes = document.querySelectorAll('.snowflake');
+    snowflakes.forEach(snowflake => snowflake.remove());
+}
+
 // Event Listeners
 cells.forEach(cell => {
     cell.addEventListener('click', handleCellClick);
@@ -246,6 +295,7 @@ newGameBtn.addEventListener('click', initGame);
 twoPlayerBtn.addEventListener('click', () => selectMode('two-player'));
 vsComputerBtn.addEventListener('click', () => selectMode('vs-computer'));
 changeModeBtn.addEventListener('click', showModeSelection);
+christmasToggle.addEventListener('click', toggleChristmasMode);
 
 // Show mode selection on start
 showModeSelection();
